@@ -23,6 +23,11 @@ describe Account do
         it 'returns an empty array' do
             expect(subject.transactions).to eq []
         end
+
+        it 'returns some transaction after one was made' do
+            subject.deposit(5)
+            expect(subject.transactions).to include 'some transaction'
+        end
     end
     
 end

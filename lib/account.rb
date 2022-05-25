@@ -4,10 +4,12 @@ class Account
 
     def initialize
         @balance = 0
+        @transactions = []
     end
 
     def deposit(amount)
         @balance += amount
+        @transactions << 'some transaction'
         "Succesful deposit of #{amount}"
     end
 
@@ -16,6 +18,6 @@ class Account
     end
     
     def transactions
-        []
+        @transactions
     end
 end
