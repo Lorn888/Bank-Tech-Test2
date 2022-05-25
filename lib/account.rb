@@ -8,7 +8,7 @@ class Account
 
     def deposit(amount)
         @balance += amount
-        'Succesful deposit'
+        "Succesful deposit of #{amount}"
     end
 
     def withdrawl(amount)

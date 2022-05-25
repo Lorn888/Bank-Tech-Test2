@@ -7,7 +7,7 @@ describe Account do
             expect(subject.balance).to eq 5
         end
         it 'returns Succesful deposit message' do
-            expect(subject.deposit(5)).to eq 'Succesful deposit'
+            expect(subject.deposit(5)).to eq 'Succesful deposit of 5'
         end
     end
 
