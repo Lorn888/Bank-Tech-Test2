@@ -1,17 +1,16 @@
 class Bank
-    attr_reader :balance
+    attr_reader :account
 
     def initialize
-        @balance = 0
         @account = Account.new
     end
 
     def deposit(amount)
-        @balance = @account.deposit(amount)
+        @account.deposit(amount)
     end
 
     def withdrawl(amount)
-        @balance = @account.withdrawl(amount)
+        @account.withdrawl(amount)
     end
     
 end
