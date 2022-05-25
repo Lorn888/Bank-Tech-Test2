@@ -15,6 +15,8 @@ class Account
 
     def withdrawl(amount)
         @balance -= amount
+        @transactions << 'some transaction'
+        "Succesful withdrawl of #{amount}"
     end
     
     def transactions

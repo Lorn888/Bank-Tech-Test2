@@ -28,6 +28,11 @@ describe Account do
             subject.deposit(5)
             expect(subject.transactions).to include 'some transaction'
         end
+        it 'returns two transactions after one withdrawl and one deposit' do
+            subject.deposit(5)
+            subject.withdrawl(2)
+            expect(subject.transactions).to eq ['some transaction', 'some transaction']
+        end
     end
     
 end
