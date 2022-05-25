@@ -14,5 +14,8 @@ class Account
     def withdrawl(amount)
         @balance -= amount
     end
-
+    
+    def transactions
+        []
+    end
 end

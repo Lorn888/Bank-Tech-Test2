@@ -18,5 +18,11 @@ describe Account do
             expect(subject.balance).to eq 15
         end
     end
+
+    describe '#transactions' do
+        it 'returns an empty array' do
+            expect(subject.transactions).to eq []
+        end
+    end
     
 end
