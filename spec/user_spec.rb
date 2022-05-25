@@ -6,6 +6,9 @@ describe Account do
             subject.deposit(5)
             expect(subject.balance).to eq 5
         end
+        it 'returns Succesful deposit message' do
+            expect(subject.deposit(5)).to eq 'Succesful deposit'
+        end
     end
 
     describe '#withrawl' do
