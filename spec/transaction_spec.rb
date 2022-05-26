@@ -19,5 +19,10 @@ describe Transaction do
             subject.withdrawl(10)
             expect(subject.type).to eq 'debit'
         end
+
+        it 'sets amount to the amount passed' do
+            subject.deposit(10)
+            expect(subject.amount).to eq 10
+        end
     end
 end

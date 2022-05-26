@@ -12,5 +12,6 @@ class Transaction
 
     def withdrawl(amount)
         @type = 'debit'
+        @amount = amount
     end
 end
