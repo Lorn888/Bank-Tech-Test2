@@ -1,8 +1,8 @@
 class Transaction
 
-    def initialize(type, amount)
-        @type = type
-        @amount = amount
+    def initialize
+        @type
+        @amount
     end
 
     def type
@@ -15,5 +15,6 @@ class Transaction
 
     def deposit(amount)
         @type = 'credit'
+        @amount = amount
     end
 end
