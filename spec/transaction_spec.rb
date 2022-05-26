@@ -13,4 +13,11 @@ describe Transaction do
             expect(subject.amount).to eq 10
         end
     end
+
+    describe '#withdrawl' do 
+        it 'sets type to debit' do
+            subject.withdrawl(10)
+            expect(subject.type).to eq 'debit'
+        end
+    end
 end
