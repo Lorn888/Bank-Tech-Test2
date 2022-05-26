@@ -16,4 +16,11 @@ describe Transaction do
             expect(subject.amount).to eq 100
         end
     end
+
+    describe '#deposit' do
+        it 'sets type to credit' do
+            subject.deposit(10)
+            expect(subject.type).to eq 'credit'
+        end
+    end
 end
