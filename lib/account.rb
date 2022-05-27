@@ -7,19 +7,27 @@ class Account
         @transactions = []
     end
 
-    def deposit(amount)
+    def deposit(amount, transaction = new_transaction)
         @balance += amount
-        @transactions << 'some transaction'
+        transaction.deposit(amount)
+        @transactions << transaction
         "Succesful deposit of #{amount}"
     end
 
-    def withdrawl(amount)
+    def withdrawl(amount, transaction = new_transaction)
         @balance -= amount
-        @transactions << 'some transaction'
+        transaction.withdrawl(amount)
+        @transactions << transaction
         "Succesful withdrawl of #{amount}"
     end
     
     def transactions
         @transactions
+    end
+
+    private
+
+    def new_transaction
+        Transaction.new
     end
 end
