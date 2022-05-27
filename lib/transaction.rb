@@ -1,8 +1,10 @@
 class Transaction
-    attr_reader :type, :amount
-    def initialize
+    attr_reader :type, :amount, :date
+    
+    def initialize(date = Time.now.strftime("%d/%m/%Y"))
         @type
         @amount
+        @date = date
     end
 
     def deposit(amount)
