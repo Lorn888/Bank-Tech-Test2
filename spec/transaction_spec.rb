@@ -1,9 +1,9 @@
 require './lib/transaction'
 
 describe Transaction do
-    @date = Time.now.strftime("%d/%m/%Y")
-    subject(:transaction) {described_class.new(@date)}
+    
     it 'is initialized with current date' do
+        @date = Time.now.strftime("%d/%m/%Y")
         expect(subject.date).to eq @date
     end
 
@@ -16,6 +16,10 @@ describe Transaction do
         it 'sets amount to the amount passed' do
             subject.deposit(10)
             expect(subject.amount).to eq 10
+        end
+        it 'sets balance to balance passed and deposit amount' do
+            subject.deposit(10)
+            expect(subject.balance).to eq 10
         end
     end
 

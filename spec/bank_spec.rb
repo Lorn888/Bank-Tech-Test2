@@ -14,4 +14,14 @@ describe Bank do
             expect(subject.account.balance).to eq 15
         end
     end
+    describe 'print_statement' do
+        it 'displays user transaction details' do
+            skip
+            subject.deposit(20)
+            subject.withdrawl(5)
+            expect(subject.print_statement).to eq "date || credit || debit || balance
+            14/01/2012 || || 5.00 || 5.00
+            10/01/2012 || 20.00 || || 20.00"
+        end
+    end
 end

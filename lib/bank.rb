@@ -12,7 +12,18 @@ class Bank
     end
 
     def withdrawl(amount)
+        fail 'Withdrawal failed. Amount exceeds account balance' if exceeds_balance(amount)
         @account.withdrawl(amount)
     end
+
+    def print_statement
+        
+    end
+
+    def exceeds_balance(amount)
+        amount> @account.balance
+    end
+
+
     
 end
