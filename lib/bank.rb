@@ -17,8 +17,18 @@ class Bank
     end
 
     def print_statement
-        
+        @strings = ["date || credit || debit || balance"]
+        @account.transactions.reverse.map do |transaction|
+            if transaction.type == 'credit'
+                @strings << "#{transaction.date} || #{transaction.amount}.00 || || #{transaction.balance}.00"
+            else
+                @strings << "#{transaction.date} || || #{transaction.amount}.00 || #{transaction.balance}.00"
+            end
+        end
+        puts @strings.join("\n").strip
     end
+
+    private
 
     def exceeds_balance(amount)
         amount> @account.balance

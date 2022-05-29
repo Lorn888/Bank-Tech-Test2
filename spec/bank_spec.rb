@@ -16,12 +16,11 @@ describe Bank do
     end
     describe 'print_statement' do
         it 'displays user transaction details' do
-            skip
+            @date = Time.now.strftime("%d/%m/%Y")
             subject.deposit(20)
             subject.withdrawl(5)
-            expect(subject.print_statement).to eq "date || credit || debit || balance
-            14/01/2012 || || 5.00 || 5.00
-            10/01/2012 || 20.00 || || 20.00"
+            statement = "date || credit || debit || balance\n#{@date} || || 5.00 || 15.00\n#{@date} || 20.00 || || 20.00\n"
+      expect { subject.print_statement }.to output(statement).to_stdout
         end
     end
 end
