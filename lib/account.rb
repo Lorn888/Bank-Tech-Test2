@@ -12,7 +12,7 @@ class Account
     def new_transaction(type, amount, transaction_class = Transaction)
         update_balance(type, amount)
         @transactions << transaction_class.new(type, amount, @balance)
-        "#{type.capitalize} of £#{amount} was successful"
+        "#{type.to_s.capitalize} of £#{amount} was successful"
     end
     
     def transactions
@@ -22,7 +22,7 @@ class Account
     private
 
     def update_balance(type, amount)
-        type == 'deposit' ? @balance += amount : @balance -= amount
+        type == :deposit ? @balance += amount : @balance -= amount
     end
 
     def add_transaction_to_log(transaction)

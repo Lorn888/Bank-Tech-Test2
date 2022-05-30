@@ -5,7 +5,7 @@ describe StatementPrinter do
     @date = Time.now.strftime("%d/%m/%Y")
     let(:transaction1) { double :transaction, 
                                 date: @date, 
-                                type: 'credit', 
+                                type: :credit, 
                                 amount: 10, 
                                 balance: 10 }
 

@@ -9,7 +9,7 @@ class Bank
     end
 
     def deposit(amount)
-        @account.new_transaction('deposit', amount)
+        @account.new_transaction(:deposit, amount)
     end
 
     def withdrawl(amount)
