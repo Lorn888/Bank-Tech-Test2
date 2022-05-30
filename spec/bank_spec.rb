@@ -15,12 +15,12 @@ describe Bank do
         end
     end
     describe 'print_statement' do
+        let(:statement_printer) { double :statement_printer }
+         
         it 'displays user transaction details' do
-            @date = Time.now.strftime("%d/%m/%Y")
-            subject.deposit(20)
-            subject.withdrawl(5)
-            statement = "date || credit || debit || balance\n#{@date} || || 5.00 || 15.00\n#{@date} || 20.00 || || 20.00\n"
-      expect { subject.print_statement }.to output(statement).to_stdout
+            transactions = subject.account.transactions
+            expect(statement_printer).to receive(:to_string).with(transactions)
+            subject.print_statement(statement_printer)
         end
     end
 end
