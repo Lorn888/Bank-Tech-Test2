@@ -9,12 +9,12 @@ class Bank
     end
 
     def deposit(amount)
-        @account.deposit(amount)
+        @account.new_transaction('deposit', amount)
     end
 
     def withdrawl(amount)
         fail 'Withdrawal failed. Amount exceeds account balance' if exceeds_balance(amount)
-        @account.withdrawl(amount)
+        @account.new_transaction('withdrawl', amount)
     end
 
     def print_statement(printer = StatementPrinter)

@@ -9,18 +9,10 @@ class Account
         @transactions = []
     end
 
-    def deposit(amount, transaction = new_transaction)
-        transaction.deposit(amount)
-        add_transaction_to_log(transaction)
-        increase_balance(amount)
-        "Succesful deposit of #{amount}"
-    end
-
-    def withdrawl(amount, transaction = new_transaction)
-        transaction.withdrawl(amount)
-        add_transaction_to_log(transaction)
-        decrease_balance(amount)
-        "Succesful withdrawl of #{amount}"
+    def new_transaction(type, amount, transaction_class = Transaction)
+        update_balance(type, amount)
+        @transactions << transaction_class.new(type, amount, @balance)
+        "#{type.capitalize} of £#{amount} was successful"
     end
     
     def transactions
@@ -29,16 +21,8 @@ class Account
 
     private
 
-    def new_transaction
-        Transaction.new(@balance)
-    end
-
-    def increase_balance(amount)
-        @balance += amount
-    end
-
-    def decrease_balance(amount)
-        @balance -= amount
+    def update_balance(type, amount)
+        type == 'deposit' ? @balance += amount : @balance -= amount
     end
 
     def add_transaction_to_log(transaction)

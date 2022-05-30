@@ -1,49 +1,29 @@
 require './lib/transaction'
 
 describe Transaction do
-    
-    it 'is initialized with current date' do
-        @date = Time.now.strftime("%d/%m/%Y")
-        expect(subject.date).to eq @date
-    end
+    subject { Transaction.new(type, amount, balance, @date) }
+    let(:type) { double :type }
+    let(:amount) { double :amount }
+    let(:balance) { double :balance }
+    @date = Time.now.strftime("%d/%m/%Y")
 
-    describe '#deposit' do
+        describe 'initialize' do
 
-        it 'sets type to credit' do
-            subject.deposit(10)
-            expect(subject.type).to eq 'credit'
-        end
+            it 'stores the type' do
+                expect(subject.type).to eq type
+            end
 
-        it 'sets amount to the amount passed' do
-            subject.deposit(10)
-            expect(subject.amount).to eq 10
-        end
+            it 'stores the amount' do
+                expect(subject.amount).to eq amount
+            end
 
-        it 'sets balance to balance passed and deposit amount' do
-            @current_balance = 20
-            subject = Transaction.new(@current_balance)
-            subject.deposit(10)
-            expect(subject.balance).to eq 30
-        end
-    end
+            it 'stores the balance' do
+                expect(subject.balance).to eq balance
+            end
 
-    describe '#withdrawl' do 
-
-        it 'sets type to debit' do
-            subject.withdrawl(10)
-            expect(subject.type).to eq 'debit'
-        end
-
-        it 'sets amount to the amount passed' do
-            subject.deposit(10)
-            expect(subject.amount).to eq 10
-        end
-
-        it 'sets balance to balance passed minus withdrawal amount' do
-            @current_balance = 10
-            subject = Transaction.new(@current_balance)
-            subject.withdrawl(5)
-            expect(subject.balance).to eq 5
+            it 'is initialized with current date' do
+                expect(subject.date).to eq @date
+            end
+     
         end
     end
-end
