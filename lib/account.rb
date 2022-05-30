@@ -11,14 +11,14 @@ class Account
 
     def deposit(amount, transaction = new_transaction)
         transaction.deposit(amount)
-        @transactions << transaction
+        add_transaction_to_log(transaction)
         increase_balance(amount)
         "Succesful deposit of #{amount}"
     end
 
     def withdrawl(amount, transaction = new_transaction)
         transaction.withdrawl(amount)
-        @transactions << transaction
+        add_transaction_to_log(transaction)
         decrease_balance(amount)
         "Succesful withdrawl of #{amount}"
     end
@@ -39,5 +39,9 @@ class Account
 
     def decrease_balance(amount)
         @balance -= amount
+    end
+
+    def add_transaction_to_log(transaction)
+        @transactions << transaction
     end
 end
